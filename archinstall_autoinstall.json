@@ -1,0 +1,116 @@
+{
+  "archinstall": {
+    "version": "2.5.0"
+  },
+  "disk_config": {
+    "config_type": "default_layout",
+    "device_modifications": [
+      {
+        "device": "/dev/sda",
+        "wipe": true,
+        "partitions": [
+          {
+            "btrfs": [],
+            "flags": ["Boot"],
+            "fs_type": "fat32",
+            "length": {"sector_size": null, "total_size": null, "unit": "MiB", "value": 512},
+            "mount_options": [],
+            "mountpoint": "/boot",
+            "obj_id": "fc",
+            "start": null,
+            "status": "create",
+            "type": "primary"
+          },
+          {
+            "btrfs": {
+              "subvolumes": [
+                {"mountpoint": "/", "name": "@"},
+                {"mountpoint": "/home", "name": "@home"},
+                {"mountpoint": "/var/log", "name": "@log"}
+              ]
+            },
+            "flags": [],
+            "fs_type": "btrfs",
+            "length": {"sector_size": null, "total_size": null, "unit": "B", "value": -1},
+            "mount_options": ["compress=zstd", "noatime"],
+            "mountpoint": "/",
+            "obj_id": "root",
+            "start": null,
+            "status": "create",
+            "type": "primary"
+          }
+        ]
+      }
+    ]
+  },
+  "bootloader": "grub",
+  "hostname": "humbleOS",
+  "kernels": ["linux", "linux-lts", "linux-hardened"],
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "network_config": {
+    "type": "nm"
+  },
+  "no_pkg_lookups": false,
+  "ntp": true,
+  "offline": false,
+  "packages": [
+    "base-devel",
+    "linux-firmware",
+    "grub",
+    "os-prober",
+    "plasma-meta",
+    "plasma-nm",
+    "plasma-pa",
+    "sddm",
+    "networkmanager",
+    "git",
+    "vlc",
+    "libreoffice-still",
+    "firefox",
+    "htop",
+    "neofetch",
+    "nmap",
+    "vim",
+    "nano",
+    "unzip",
+    "zip",
+    "flameshot",
+    "timeshift",
+    "gimp",
+    "kdenlive",
+    "qbittorrent",
+    "filezilla",
+    "gnome-disk-utility",
+    "partitionmanager",
+    "discover",
+    "ufw",
+    "firewalld",
+    "ttf-dejavu",
+    "ttf-liberation",
+    "noto-fonts",
+    "noto-fonts-emoji",
+    "fish",
+    "zsh"
+  ],
+  "parallel downloads": 5,
+  "profile_config": null,
+  "save_config": null,
+  "script": "guided",
+  "silent": false,
+  "swap": true,
+  "timezone": "America/New_York",
+  "version": "2.5.0",
+  "disk_encryption": null,
+  "!root-password": "humbleOS",
+  "!users": [
+    {
+      "username": "humble",
+      "!password": "humble",
+      "sudo": true
+    }
+  ]
+}
